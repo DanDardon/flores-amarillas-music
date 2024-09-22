@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>FLORES</title>
+</head>
+<body>
+    <div class="greetings">
+        <span>P</span>
+        <span>A</span>
+        <span>R</span>
+        <span>A</span>
+        <span>&nbsp;</span> <!-- Espacio -->
+        <span>A</span>
+        <span>L</span>
+        <span>E</span>
+        <span>X</span>
+        <span>A</span>
+        <span>N</span>
+        <span>D</span>
+        <span>R</span>
+        <span>A</span>
+        <span>&nbsp;</span> <!-- Espacio -->
+        <span>♥</span>
+    </div>
+
+    <div class="description">
+        <span>CON MUCHO CARIÑO, ESPERO TE GUSTE!!</span>
+    </div>
+    
+    <div class="button">
+        <button>
+            <a href="FLORES.html">Haga Clic</a>
+        </button>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio id="myAudio" controls>
+        <source src="img/Floricienta.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // Seleccionamos el elemento audio
+        const audio = document.getElementById('myAudio');
+
+        // Configuramos el intervalo deseado (en segundos)
+        const startTime = 30; // Empieza en el segundo 30
+        const endTime = 60;   // Termina en el segundo 60
+
+        // Cuando el archivo de audio esté listo, establece el tiempo de inicio
+        audio.addEventListener('canplay', () => {
+            audio.currentTime = startTime;
+        });
+
+        // Escuchar el evento de tiempo y pausar el audio al alcanzar el final del lapso
+        audio.addEventListener('timeupdate', () => {
+            if (audio.currentTime >= endTime) {
+                audio.pause();  // Pausar cuando llegue al final
+            }
+        });
+
+        // Iniciar la reproducción automáticamente al cargar la página
+        window.onload = () => {
+            audio.play();
+        };
+    </script>
+
+</body>
+</html>
